@@ -63,5 +63,13 @@ submitBtn.addEventListener("click",()=>{
     let readOrNot=document.querySelector('input[name="bookRead"]:checked').value;
     console.log(title+author+pages+readOrNot)
     addBookToLibrary(title,author,pages,readOrNot);
+    console.log(title)
     popUp.classList.remove("openPop");
+    clearInputField()
 })
+function clearInputField(){
+    document.querySelector("#title").value=""
+    document.querySelector("#author").value=""
+    document.querySelector("#pages").value=""
+    document.querySelector('input[name="bookRead"]:checked').value=""
+}
