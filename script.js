@@ -10,9 +10,9 @@ function Book(name,author,pageNumber,read){
 function addBookToLibrary(name,author,pageNumber,read){
     let newBook=new Book(name,author,pageNumber,read)
     myLibrary.push(newBook);
-    displayBooks(myLibrary)
+    displayBooks(myLibrary,read)
 }
-function displayBooks(array){
+function displayBooks(array,read){
     let content=document.querySelector(".content");
     array.map((book)=>{
     if(displayedBooks.includes(book)){
@@ -26,8 +26,24 @@ function displayBooks(array){
     let author=document.createElement('div');
     let page=document.createElement('div');
     let readButton=document.createElement('button');
-    readButton.textContent="Read"
+    if(read=="yes"){
+        readButton.textContent="Read"
+    }
+    else{
+        readButton.textContent="Not Read"
+        readButton.style.cssText="background-color: red"
+    }
     readButton.className='readButton'
+    readButton.addEventListener("click",()=>{
+        if(readButton.textContent=="Read"){
+            readButton.textContent="Not Read"
+            readButton.style.cssText="background-color: red";
+        }
+        else{
+            readButton.textContent="Read"
+            readButton.style.cssText="background-color: rgb(18, 248, 18)";
+        }
+    })
     title.textContent=book.name;
     title.className='title'
     author.textContent="Author: "+book.author;
@@ -43,11 +59,11 @@ function displayBooks(array){
     }  
    })
 }
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
-addBookToLibrary("1984", "George Orwell", 328, false);
-addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, true);
-addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 180, false);
-addBookToLibrary("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", 309, true);
+addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, "yes");
+addBookToLibrary("1984", "George Orwell", 328, "no");
+addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, "yes");
+addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 180, "no");
+addBookToLibrary("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", 309, "yes");
 displayBooks(myLibrary)
 let addButton=document.querySelector(".addButton");
 let popUp=document.querySelector(".popup");
