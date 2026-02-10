@@ -1,0 +1,59 @@
+@import 'modern-normalize';
+body{
+    margin: 0px;
+    display: grid;
+    grid: repeat(12,1fr)/repeat(12,1fr);
+    height: 100vh;
+    background-color:white;
+    color: blue;
+}
+.header{
+    display: flex;
+    align-items: center;
+    grid-column: 1/13;
+    grid-row: span 2;
+    display: grid;
+    grid: 55%/repeat(12,1fr);
+}
+.header>:first-child{
+    grid-column: 6/9;
+    font-size: 45px;
+}
+#login{
+    grid-column: 11/12;
+    border-radius: 5px;
+    min-width:72px ;
+    background-color: rgb(42, 42, 211);
+    color: wheat;
+    font-weight: bold;
+    font-size: 125%;
+    padding: 5px;
+}
+.content {
+    padding: 5%;
+    grid-row: 3/12;
+    grid-column: 1/13;
+    background-color: rgba(163, 87, 87, 0.757);
+    display: grid;
+    grid-template-rows: repeat(auto-fill, minmax(100px, 200px)); 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    column-gap: 60px;
+    row-gap: 80px; 
+    overflow: auto;
+    overflow-wrap: anywhere;
+    max-height: 100%;
+}
+.footer{
+    grid-row: span;
+    grid-column: 1/13;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.items{
+    border: solid yellow;
+    height:150px;
+    width: 340px;
+    min-height: 100px;
+    min-width: 10px;
+}
