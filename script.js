@@ -13,10 +13,26 @@ function addBookToLibrary(name,author,pageNumber,read){
 function displayBooks(array){
    let content=document.querySelector(".content");
    array.map((book)=>{
-    let item=document.createElement('div')
-    item.textContent=book.name
-    item.className="items"
-    content.appendChild(item)
+    let item=document.createElement('div');
+    let title=document.createElement('div');
+    let basicInfo=document.createElement('div');
+    let author=document.createElement('div');
+    let page=document.createElement('div');
+    let readButton=document.createElement('button');
+    readButton.textContent="Read"
+    readButton.className='readButton'
+    title.textContent=book.name;
+    title.className='title'
+    author.textContent="Author: "+book.author;
+    page.textContent="page: "+book.pageNumber;
+    basicInfo.className='basicInfo'
+    basicInfo.appendChild(author);
+    basicInfo.appendChild(page);
+    item.className="items";
+    item.appendChild(title)
+    item.appendChild(basicInfo);
+    item.appendChild(readButton)
+    content.appendChild(item);
    })
 }
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
