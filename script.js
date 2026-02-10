@@ -61,9 +61,7 @@ submitBtn.addEventListener("click",()=>{
     let author=document.querySelector("#author").value;
     let pages=document.querySelector("#pages").value;
     let readOrNot=document.querySelector('input[name="bookRead"]:checked').value;
-    console.log(title+author+pages+readOrNot)
     addBookToLibrary(title,author,pages,readOrNot);
-    console.log(title)
     popUp.classList.remove("openPop");
     clearInputField()
 })
@@ -73,3 +71,8 @@ function clearInputField(){
     document.querySelector("#pages").value=""
     document.querySelector('input[name="bookRead"]:checked').value=""
 }
+let cancelBtn=document.querySelector("#cancel");
+cancelBtn.addEventListener("click",()=>{
+    popUp.classList.remove("openPop");
+})
+

@@ -152,3 +152,15 @@ input{
     outline: none;
     align-self: center;
 }
+#cancel{
+     background-color: rgb(18, 248, 18);
+    width: 100px;
+    color: blue;
+    font-weight: bold;
+    border-radius: 6px;
+    height: 30px;
+    margin: 4%;
+    border: 0;
+    outline: none;
+    align-self: center;
+}
