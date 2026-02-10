@@ -20,12 +20,18 @@ function displayBooks(array,read){
     }
     else{
         displayedBooks.push(book);    
-    let item=document.createElement('div');
-    let title=document.createElement('div');
-    let basicInfo=document.createElement('div');
-    let author=document.createElement('div');
-    let page=document.createElement('div');
-    let readButton=document.createElement('button');
+        let item=document.createElement('div');
+        let title=document.createElement('div');
+        let basicInfo=document.createElement('div');
+        let author=document.createElement('div');
+        let page=document.createElement('div');
+        let readButton=document.createElement('button');
+        let deleteBtn=document.createElement('button');
+        deleteBtn.textContent="Delete";
+        deleteBtn.className="deleteBtn";
+        deleteBtn.addEventListener("click",()=>{
+            item.remove()
+        })
     if(read=="yes"){
         readButton.textContent="Read"
     }
@@ -55,6 +61,7 @@ function displayBooks(array,read){
     item.appendChild(title)
     item.appendChild(basicInfo);
     item.appendChild(readButton)
+    item.appendChild(deleteBtn)
     content.appendChild(item);
     }  
    })
