@@ -10,8 +10,30 @@
     <div class="header">
         <div>Library</div>
         <button id="login">Log In</button>
+        <button class="addButton">Add a Book</button>
     </div>
     <div class="content">
+        <div class="popup">
+            <legend style="font-size: large; font-weight: bold;">My Library</legend>
+            <div>
+                <label for="title">Book Title: </label>
+                <input type="text" id="title" style="margin-left: 20px;">
+            </div>
+            <div>
+                <label for="author" style="margin-left:2px">Author: </label>
+                <input type="text" id="author" style="width: 170px; margin-left: 40px;">
+            </div>
+            <div>
+                <label for="pages">Page count: </label>
+                <input type="number" id="pages" style="margin-left: 17px;">
+            </div>
+            <div>
+                <label for="readOrNot">Have you read this book?</label>
+                <input type="radio" name="bookRead"  value="yes" checked>Yes
+                <input type="radio" name="bookRead"  value="no">No
+            </div>
+            <button type="submit" id="submitBtn">Submit</button>
+        </div>
     </div>
     <div class="footer">Made by &nbsp<a href="https://github.com/dawit-kibatu"> Dawit Kibatu</a> &nbspFor &nbsp <a href="https://www.theodinproject.com"> Odin Project</a></div>
 </body>

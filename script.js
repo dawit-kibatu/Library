@@ -1,4 +1,5 @@
 const myLibrary=[];
+let displayedBooks=[]
 function Book(name,author,pageNumber,read){
     this.name=name;
     this.author=author;
@@ -9,10 +10,16 @@ function Book(name,author,pageNumber,read){
 function addBookToLibrary(name,author,pageNumber,read){
     let newBook=new Book(name,author,pageNumber,read)
     myLibrary.push(newBook);
+    displayBooks(myLibrary)
 }
 function displayBooks(array){
-   let content=document.querySelector(".content");
-   array.map((book)=>{
+    let content=document.querySelector(".content");
+    array.map((book)=>{
+    if(displayedBooks.includes(book)){
+        return
+    }
+    else{
+        displayedBooks.push(book);    
     let item=document.createElement('div');
     let title=document.createElement('div');
     let basicInfo=document.createElement('div');
@@ -33,6 +40,7 @@ function displayBooks(array){
     item.appendChild(basicInfo);
     item.appendChild(readButton)
     content.appendChild(item);
+    }  
    })
 }
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
@@ -41,3 +49,19 @@ addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, true);
 addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 180, false);
 addBookToLibrary("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", 309, true);
 displayBooks(myLibrary)
+let addButton=document.querySelector(".addButton");
+let popUp=document.querySelector(".popup");
+addButton.addEventListener("click",handleClick)
+function handleClick(){
+    popUp.classList.add("openPop")
+}
+let submitBtn=document.querySelector("#submitBtn")
+submitBtn.addEventListener("click",()=>{
+    let title=document.querySelector("#title").value;
+    let author=document.querySelector("#author").value;
+    let pages=document.querySelector("#pages").value;
+    let readOrNot=document.querySelector('input[name="bookRead"]:checked').value;
+    console.log(title+author+pages+readOrNot)
+    addBookToLibrary(title,author,pages,readOrNot);
+    popUp.classList.remove("openPop");
+})
